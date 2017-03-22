@@ -10,7 +10,7 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "workingDirectory": "C:\\Users\\Hakim\\Desktop\\CSharp Projects\\TechJobsMVC",
+      "workingDirectory": "C:\\Users\\Hakim\\Desktop\\CSharp Projects\\TechJobsMVC\\src\\TechJobsMVC",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

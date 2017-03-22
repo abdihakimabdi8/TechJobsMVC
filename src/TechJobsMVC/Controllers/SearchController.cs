@@ -16,7 +16,10 @@ namespace TechJobs.Controllers
         }
         public IActionResult Results()
         {
-            Redirect("/Search");
+            ViewBag.columns = ListController.columnChoices;
+            ViewBag.title = "Search";
+            return View();
+            
         }
         [HttpPost]
 
@@ -29,7 +32,7 @@ namespace TechJobs.Controllers
                 List<Dictionary<string, string>> jobs = JobData.FindByValue(column, searchTerm);
                 ViewBag.title = "All Jobs";
                 ViewBag.jobs = jobs;
-                return Redirect("/Search");
+                return View();
             }
             else
             {
