@@ -3,14 +3,14 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44342/",
+      "applicationUrl": "http://localhost:44348/",
       "sslPort": 0
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
+      "workingDirectory": "C:\\Users\\Hakim\\Desktop\\CSharp Projects\\TechJobsMVC",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
