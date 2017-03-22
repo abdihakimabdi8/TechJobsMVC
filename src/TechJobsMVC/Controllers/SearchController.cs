@@ -40,7 +40,7 @@ namespace TechJobs.Controllers
                 ViewBag.title = "Jobs with " + ViewBag.columns[column] + ": " + searchTerm;
                 ViewBag.jobs = jobs;
 
-                return Redirect("/Search");
+                return View(); 
             }
         }
     }
