@@ -46,24 +46,31 @@ namespace TechJobs.Models
         /**
          * Search all columns for the given term
          */
-        public static List<Dictionary<string, string>> FindByValue(string column, string value)
+        public static List<Dictionary<string, string>> FindByValue(string value)
         {
             // load data, if not already loaded
             LoadData();
-            List<Dictionary<string, string>> values = new List<Dictionary<string, string>>();
-            foreach (Dictionary<string, string> jobs in AllJobs)
-            {
-                foreach (KeyValuePair<string, string> choice in jobs)
-                {
-                    string aValue = choice.Value.ToUpper();
 
-                    if (aValue.ToUpper().Contains(value.ToUpper()))
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> row in AllJobs)
+            {
+
+                foreach (string key in row.Keys)
+                {
+                    string aValue = row[key];
+
+                    if (aValue.ToLower().Contains(value.ToLower()))
                     {
-                        values.Add(jobs);
+                        jobs.Add(row);
+
+                        // Finding one field in a job that matches is sufficient
+                        break;
                     }
                 }
             }
-            return values;
+
+            return jobs;
         }
         /**
          * Returns results of search the jobs data by key/value, using

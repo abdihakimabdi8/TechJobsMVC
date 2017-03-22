@@ -1,6 +1,7 @@
-﻿<h1>@ViewBag.title</h1>
-@ViewBag.columns = ListController.columnChoices;
-<form action="/Search/Results"> //method="post">
+﻿
+<h1>@ViewBag.title</h1>
+
+<form metod="post">
     <h2>Search by:</h2>
 
     <p>
@@ -35,7 +36,7 @@
 
 @foreach(Dictionary<string, string> job in ViewBag.jobs)
 {
-@foreach (KeyValuePair<string, string> item in ViewBag.job)
+@foreach (KeyValuePair<string, string> item in job)
 {
     <tr >
         <td><a asp-controller="Search" asp-action="Jobs" asp-route-column="@item.Key" asp-route-value="@item.Value">@item.Key @item.Value</a></td>

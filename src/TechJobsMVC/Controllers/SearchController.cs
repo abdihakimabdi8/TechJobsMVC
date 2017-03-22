@@ -14,25 +14,21 @@ namespace TechJobs.Controllers
             ViewBag.title = "Search";
             return View();
         }
-        public IActionResult Results()
-        {
-            ViewBag.columns = ListController.columnChoices;
-            ViewBag.title = "Search";
-            return View();
-            
-        }
+        
         [HttpPost]
 
-        [Route("/Search/Results")]
-        public IActionResult Jobs(string column, string searchTerm)
+        [Route("/Search")]
+        public IActionResult Results(string column, string searchTerm)
         {
+            ViewBag.columns = ListController.columnChoices;
             if (column.Equals("all"))
+
             {
              
-                List<Dictionary<string, string>> jobs = JobData.FindByValue(column, searchTerm);
+                List<Dictionary<string, string>> jobs = JobData.FindByValue(searchTerm);
                 ViewBag.title = "All Jobs";
                 ViewBag.jobs = jobs;
-                return View();
+            
             }
             else
             {
@@ -40,8 +36,9 @@ namespace TechJobs.Controllers
                 ViewBag.title = "Jobs with " + ViewBag.columns[column] + ": " + searchTerm;
                 ViewBag.jobs = jobs;
 
-                return View(); 
+                
             }
+            return View("Index");
         }
     }
 }
